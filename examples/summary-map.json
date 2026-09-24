@@ -1,0 +1,48 @@
+{
+  "eyebrow": "LEARNING MAP / EXAMPLE",
+  "title": "学习复盘示例",
+  "subtitle": "示例课程 / 函数与极限",
+  "status": "演示数据 · 非真实作答",
+  "description": "四个知识分支与一个明确标注的示例错题",
+  "core_label": "DAY REVIEW · 学习复盘",
+  "core_title": "函数与极限",
+  "core_subtitle": "从条件走向判断",
+  "core_foot": "示例数据 · 掌握程度待核实",
+  "workload": "2 道例题 · 4 道变式",
+  "error_count": 1,
+  "legend": "彩色分支：知识模块",
+  "note_legend": "错题标记：示例，不代表真实表现",
+  "footer": "下一步：独立完成变式题",
+  "branches": [
+    {
+      "side": "left", "category": "基础", "title": "定义域",
+      "rule": "根号内非负；分母非零",
+      "detail": "多个限制取交集",
+      "error": {
+        "number": 1, "label": "示例错题", "mistake": "遗漏分母不能为零",
+        "fix": "订正：逐项列条件，再核查端点"
+      }
+    },
+    {
+      "side": "left", "category": "基础", "title": "函数值",
+      "rule": "先确认输入属于定义域",
+      "detail": "分段点先看等号所在的一段",
+      "check": "分界点该选哪段？",
+      "check_fix": "核对：按题目给出的区间选择"
+    },
+    {
+      "side": "right", "category": "方法", "title": "直接代入",
+      "rule": "先检查目标点的分母",
+      "detail": "分母非零时可代入",
+      "check": "分母为零仍能代入？",
+      "check_fix": "核对：先尝试适用的化简方法"
+    },
+    {
+      "side": "right", "category": "检验", "title": "双侧极限",
+      "rule": "分别计算左极限与右极限",
+      "detail": "两侧存在且相等才有双侧极限",
+      "check": "函数值能替代极限？",
+      "check_fix": "核对：该点的值与附近趋势分开判断"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Required only for optional PNG output from render_summary_map.py
+Pillow>=9.1
