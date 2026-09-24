@@ -1,6 +1,6 @@
 # Good Learning
 
-一个用于 Codex 的学习与备考 skill：根据考纲、教材、真题和可用时间建立知识清单、备考计划与每日课程，再依据真实作答整理错题并调整后续安排
+一个用于 AI agent 的学习与备考 skill：根据考纲、教材、真题和可用时间建立知识清单、备考计划与每日课程，再依据真实作答整理错题并调整后续安排
 
 ## 能做什么
 
@@ -12,7 +12,7 @@
 
 ## 安装
 
-把仓库克隆或复制为 Codex skills 目录下的 `good-learning` 文件夹，重启 Codex 或重新加载 skills 后即可使用
+以codex为示例：把仓库克隆或复制为 Codex skills 目录下的 `good-learning` 文件夹，重启 Codex 或重新加载 skills 后即可使用
 
 ```text
 ~/.codex/skills/good-learning/SKILL.md
