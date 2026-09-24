@@ -1,14 +1,14 @@
 # LaTeX 导出
 
-本 skill 产出的**每一份 PDF**，不论学科或是否有公式，均须先生成 `.tex`，再用 XeLaTeX 或 LuaLaTeX 实际编译。`.tex` 与最终 PDF 一起存入科目或比赛文件夹。公式直接保留 LaTeX 数学模式；不得使用网页打印、Word 导出、ReportLab 等其他方式替代编译。若编译器不可用，先排查或安装，仍不可用时明确告知 PDF 尚未完成，不输出来源不明的 PDF。
+本 skill 产出的**每一份 PDF**，不论学科或是否有公式，均须先生成 `.tex`，再用 XeLaTeX 或 LuaLaTeX 实际编译。最终 PDF 放在科目或比赛文件夹顶层，`.tex` 放在其 `源文件` 子目录，保持同名以便重编译。公式直接保留 LaTeX 数学模式；不得使用网页打印、Word 导出、ReportLab 等其他方式替代编译。若编译器不可用，先排查或安装，仍不可用时明确告知 PDF 尚未完成，不输出来源不明的 PDF。
 
 工作区的 [`scripts/render_study_pdf.py`](../scripts/render_study_pdf.py) 可把本 skill 常用的 Markdown（标题、段落、列表、表格、粗体、链接和 `$...$`／`$$...$$` 公式）转成黑白 XeLaTeX 文档。它从一个 JSON 文件读取导图信息：顶层分别以 `knowledge`、`plan`、`day` 为键，每项有 `title`、`center` 和六个 `nodes`；每个节点有 `title` 与 `lines`。如果材料含脚本未支持的 Markdown，先扩展转换逻辑或直接编写 `.tex`，不得丢失正文。
 
 ```text
-python scripts/render_study_pdf.py 今日课程.md 今日课程-紧凑.tex --kind day --layout compact --map-config 导图.json
-python scripts/render_study_pdf.py 今日课程.md 今日课程-宽松.tex --kind day --layout loose --map-config 导图.json
-python scripts/compile_study_pdf.py 今日课程-紧凑.tex 今日课程-紧凑.pdf
-python scripts/compile_study_pdf.py 今日课程-宽松.tex 今日课程-宽松.pdf
+python scripts/render_study_pdf.py 科目/源文件/每日学习/今日课程.md 科目/源文件/每日学习/今日课程-紧凑.tex --kind day --layout compact --map-config 科目/源文件/每日学习/导图.json
+python scripts/render_study_pdf.py 科目/源文件/每日学习/今日课程.md 科目/源文件/每日学习/今日课程-宽松.tex --kind day --layout loose --map-config 科目/源文件/每日学习/导图.json
+python scripts/compile_study_pdf.py 科目/源文件/每日学习/今日课程-紧凑.tex 科目/今日课程-紧凑.pdf
+python scripts/compile_study_pdf.py 科目/源文件/每日学习/今日课程-宽松.tex 科目/今日课程-宽松.pdf
 ```
 
 对知识清单和备考计划分别使用 `--kind knowledge`、`--kind plan`。每日课程每个核心方法用 `## 单元 N...` 标题，脚本使单元另起一页；单元包含一题完整例题和其举一反三。将独立填步题、变式题放在 `### 举一反三` 下，混合题放在 `## 独立练习` 下，使用 `**A1.**` 一类题号；脚本只给这些题目留作答空白，例题不留白。若某题需要长证明或作图，按实际解答量调整空白高度。答案应有单独的二级标题，并位于全部独立练习之后。
